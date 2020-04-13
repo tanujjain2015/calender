@@ -1,3 +1,9 @@
+//Author: Tanuj Jain
+//Date Created: Apr-12-2020
+
+// This is the main program. 
+
+
 //alert (moment().format('hA'));
 var eventsArray = [];  
 var eventStorageArray = [];
@@ -26,7 +32,7 @@ var calender = function(){
 };
 
 function populateTime(){
-    for (var i=9; i< 24;i++){
+    for (var i=9; i< 18;i++){
         var length = timeCalender.length;
         timeCalender.push(calender());
         timeCalender[length].id = uuidGenerator();
@@ -101,7 +107,7 @@ function populateCalenderHtml (){
         paraThirdEl.setAttribute("id","event-savebutton-" + i);
         paraThirdEl.textContent = "💾";
 
-        console.log("value of decideTimeLapsefunction is=" + decideTimeLapse(timeCalender[i].kformat));
+       // console.log("value of decideTimeLapsefunction is=" + decideTimeLapse(timeCalender[i].kformat));
         middleColEl.className = "col-sm-10 border " + decideTimeLapse(timeCalender[i].kformat) + " id-middle-" + i;
         
         
@@ -136,7 +142,7 @@ function removeDayRow(id) {
 
 //Function to add Event. 
 function addEvent(event){
-    console.log(event.target.id);
+   // console.log(event.target.id);
     if (event.target.id === 'id-middle-8-row'){
         var parentElement = document.getElementById(event.target.id);
         for (var i=0; i < 2; i++){
@@ -177,8 +183,8 @@ var createEvent = function(eventArrayId) {
   
     eventCol.append(eventP);
     
-    console.log(eventsArray[eventArrayId].parentIdElement);
-    console.dir(eventCol);
+   // console.log(eventsArray[eventArrayId].parentIdElement);
+    //console.dir(eventCol);
 
     var temp_value = "#" + eventsArray[eventArrayId].parentIdElement;
     $(temp_value).append(eventCol);
@@ -225,9 +231,9 @@ var saveTasks = function(parentElementId) {
         }
     }
     if (eventStorageArray != null){
-        for (var i =0; i < eventStorageArray.length; i++){
+        /*for (var i =0; i < eventStorageArray.length; i++){
             console.log(eventStorageArray[i]);
-        }
+        }*/
         storeObjectToLocalStorage("CalenderKey", eventStorageArray);
     }
     else {
@@ -294,11 +300,11 @@ populateEventsArrayfromLocalStorage();
 
 $("main").on("click",function(event){
     //alert( "Handler for .click() called" );
-    console.log(event.target.id);
+    //console.log(event.target.id);
     parentId_temp = event.target.id;
     var splitString = parentId_temp.split("-");
 
-    console.log(timeCalender[splitString[2]].kformat);
+    //console.log(timeCalender[splitString[2]].kformat);
     if (timeCalender[splitString[2]].kformat < parseInt(moment().format('k'))){
         window.alert(" Time has elapsed to create new event for this hour.");
     } else{

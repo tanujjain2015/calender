@@ -1,7 +1,7 @@
 //Author: Tanuj Jain
-//Date Created: Apr-4-2020
+//Date Created: Apr-12-2020
 
-// The main objective of this function is to define common functions for this program.
+// The main objective of this file is to define common methods for this program.
 
 "use strict"
 
